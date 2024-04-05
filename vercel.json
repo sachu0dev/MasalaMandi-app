@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "build/*",
-      "use": "@vercel/static-build",
-      "config": { "zeroConfig": true }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
