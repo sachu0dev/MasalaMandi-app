@@ -2,15 +2,32 @@
   "version": 2,
   "builds": [
     {
-      "src": "build/*",
+      "src": "build",
       "use": "@vercel/static-build"
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
     {
-      "src": "/.*",
-      "dest": "/index.html"
+      "src": "/(.*).(js|css)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "/build/$1.$2"
+    },
+    {
+      "src": "/(.*).(jpg|png|svg|ico)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "/build/$1.$2"
+    },
+    {
+      "src": "/(favicon.ico)",
+      "dest": "/build/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "http://localhost:3000/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/build/index.html"
     }
   ]
 }
