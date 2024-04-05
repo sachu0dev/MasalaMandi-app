@@ -36,7 +36,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="home-body h-[90%] flex  items-center justify-between m-4 ">
+    <div className="home-body h-[90vh] flex  items-center justify-between m-4 ">
       <div className="home-details flex flex-col mx-w-[32rem] gap-8 m-8">
         <div className="home-text text-dark-orange flex flex-col items-start">
           <p className="text-[8rem] text-light-black font-bold leading-tight">
